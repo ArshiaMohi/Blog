@@ -12,5 +12,5 @@ public interface ApplicationUserService {
 
     List<ApplicationUser> findAll();
 
-    void login(String username, String password);
+    ApplicationUser findByUsernameAndPassword(String username, String password);
 }

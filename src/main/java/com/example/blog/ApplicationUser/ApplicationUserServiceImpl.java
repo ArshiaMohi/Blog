@@ -32,7 +32,8 @@ public class ApplicationUserServiceImpl implements ApplicationUserService{
     }
 
     @Override
-    public void login(String username, String password) {
+    public ApplicationUser findByUsernameAndPassword(String username, String password) {
         applicationUserRepository.findByUsernameAndPassword(username, password);
+        return null;
     }
 }
