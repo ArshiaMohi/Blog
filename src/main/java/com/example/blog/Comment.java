@@ -1,12 +1,12 @@
-package com.example.blog.Blog;
+package com.example.blog;
 
+import com.example.blog.Blog.Blog;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
@@ -15,17 +15,15 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Blog {
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String title;
-    @Column(length = 1000)
     private String description;
-    @Column(length = 1000)
-    private String imageAddress;
+    private String username;
+    private Boolean approved;
     @CreationTimestamp
     private LocalDateTime createdAt;
-    @UpdateTimestamp
-    private LocalDateTime updatedAt;
+    @ManyToOne
+    private Blog blog;
 }
